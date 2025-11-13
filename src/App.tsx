@@ -1,7 +1,7 @@
-import "./App.css";
+import RootRoute from "@/root-route";
 
 function App() {
-  return <div>hello world</div>;
+  return <RootRoute />;
 }
 
 export default App;
