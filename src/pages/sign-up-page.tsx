@@ -21,7 +21,7 @@ function SignUpPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="text-xl font-bold">회원가입5566</div>
+      <div className="text-xl font-bold">회원가입58886</div>
       <div className="flex flex-col gap-2">
         <Input
           className="py-6"
