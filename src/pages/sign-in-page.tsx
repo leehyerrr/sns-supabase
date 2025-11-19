@@ -6,7 +6,7 @@ import { useSignInWithPassword } from "@/hooks/mutations/use-sign-in-with-passwo
 import { useSignInWithOAuth } from "@/hooks/mutations/use-sign-in-with-oauth";
 import { toast } from "sonner";
 import { generateErrorMessage } from "@/lib/error";
-import { AuthError } from "@supabase/supabase-js";
+// import { AuthError } from "@supabase/supabase-js";
 
 function SignInPage() {
   const [email, setEmail] = useState("");
