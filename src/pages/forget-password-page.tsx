@@ -1,5 +1,5 @@
 import { Button, Input } from "@/components/ui";
-import { useRequestPasswordResetEmail } from "@/hooks/mutations/use-request-password-reset";
+import { useRequestPasswordResetEmail } from "@/hooks/mutations/auth/use-request-password-reset";
 import { generateErrorMessage } from "@/lib/error";
 import { useState } from "react";
 import { toast } from "sonner";

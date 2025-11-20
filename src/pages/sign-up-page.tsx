@@ -1,5 +1,5 @@
 import { Button, Input } from "@/components/ui";
-import { useUsignUp } from "@/hooks/mutations/use-sign-up";
+import { useUsignUp } from "@/hooks/mutations/auth/use-sign-up";
 import { generateErrorMessage } from "@/lib/error";
 import { useState } from "react";
 import { Link } from "react-router";
