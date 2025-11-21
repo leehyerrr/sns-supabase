@@ -1,3 +1,4 @@
+import { uploadImage } from "@/api/image";
 import {
   Button,
   Carousel,

@@ -10,6 +10,7 @@ import ResetPasswordPage from "./pages/reset-password-page";
 import GlobalLayout from "./components/layout/global-layout";
 import GuestOnlyLayout from "./components/layout/guest-only-layout";
 import MemberOnlyLayout from "./components/layout/member-only-layout";
+import TestImageUpload from "./pages/test-imageUpload";
 
 function RootRoute() {
   return (
@@ -29,6 +30,8 @@ function RootRoute() {
         </Route>
 
         <Route path="*" element={<Navigate to={"/"} />} />
+
+        <Route path="/test-imageUpload" element={<TestImageUpload />} />
       </Route>
     </Routes>
   );
