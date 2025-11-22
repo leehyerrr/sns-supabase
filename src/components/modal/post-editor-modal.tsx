@@ -1,4 +1,3 @@
-import { uploadImage } from "@/api/image";
 import {
   Button,
   Carousel,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui";
 import { useCreatePost } from "@/hooks/mutations/post/use-create-post";
 import { usePostEditorModal } from "@/store/post-editor-modal";
+import { useSession } from "@/store/session";
 import { ImageIcon, XIcon } from "lucide-react";
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
 import { toast } from "sonner";
@@ -22,6 +22,7 @@ type Image = {
 };
 
 function PostEditorModal() {
+  const session = useSession();
   const { isOpen, close } = usePostEditorModal();
   const { mutate: createPost, isPending: isCreatePostPending } = useCreatePost({
     onSuccess: () => {
@@ -43,7 +44,11 @@ function PostEditorModal() {
 
   const handleCreatePostClick = () => {
     if (content.trim() === "") return;
-    createPost(content);
+    createPost({
+      content,
+      images: images.map((image) => image.file),
+      userId: session!.user.id,
+    });
   };
 
   const handleSelectImages = (e: ChangeEvent<HTMLInputElement>) => {

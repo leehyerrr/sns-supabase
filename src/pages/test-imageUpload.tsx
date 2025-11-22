@@ -52,4 +52,10 @@ function TestImageUpload() {
   );
 }
 
+/* 
+var kk = async function () {return 'ggg-gg'}
+var ss = async function () {var post = await kk(); console.log(post); return post}
+ss() 결과 :ggg-gg  Promise{Promise, "fulfilled", "ggg-gg"}
+ */
+
 export default TestImageUpload;
