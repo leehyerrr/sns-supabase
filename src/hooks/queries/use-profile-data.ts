@@ -18,6 +18,7 @@ export function useProfileData(userId?: string) {
         if (isMine && (error as PostgrestError).code === "PGRST116") {
           return await createProfile(userId!);
         }
+        throw error;
       }
     },
     enabled: !!userId,
