@@ -51,7 +51,6 @@ export async function createPostWidthImages({
         });
       }),
     );
-
     const updatedPost = await updatePost({
       id: post.id,
       image_urls: imageUrls,
