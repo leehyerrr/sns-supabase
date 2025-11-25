@@ -9,8 +9,13 @@ import {
 import { formatTimeAgo } from "@/lib/time";
 import EditPostButton from "./edit-post-button";
 import DeletePostButton from "./delete-post-button";
+import { useSession } from "@/store/session";
 
 export default function PostItem(post: Post) {
+  const session = useSession();
+  const userId = session?.user.id;
+  const isMine = post.author_id === userId;
+
   return (
     <div className="flex flex-col gap-4 border-b pb-8">
       <div className="flex justify-between">
@@ -32,8 +37,12 @@ export default function PostItem(post: Post) {
         </div>
 
         <div className="text-muted-foreground flex text-sm">
-          <EditPostButton {...post} />
-          <DeletePostButton id={post.id} />
+          {isMine && (
+            <>
+              <EditPostButton {...post} />
+              <DeletePostButton id={post.id} />
+            </>
+          )}
         </div>
       </div>
 
