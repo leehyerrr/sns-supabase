@@ -5,9 +5,20 @@ import type { PostEntity } from "@/types";
 export async function fetchPosts({ from, to }: { from: number; to: number }) {
   const { data, error } = await supabase
     .from("post")
-    .select("*, author:profile!author_id (*)")
+    .select("*, author:profile!author_id (*)") //작성자 정보 가져오는 join문
     .order("created_at", { ascending: false })
     .range(from, to);
+
+  if (error) throw error;
+  return data;
+}
+
+export async function fetchPostById(postId: number) {
+  const { data, error } = await supabase
+    .from("post")
+    .select("*, author:profile!author_id (*)") //작성자 정보 가져오는 join문
+    .eq("id", postId)
+    .single();
 
   if (error) throw error;
   return data;
