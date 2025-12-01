@@ -8,6 +8,7 @@ export async function fetchComments(postId: number) {
     .order("created_at", { ascending: false });
 
   if (error) throw error;
+  console.log(data);
   return data;
 }
 
