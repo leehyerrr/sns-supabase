@@ -1,5 +1,5 @@
 import { Button, Input } from "@/components/ui";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import gitHubLogo from "@/assets/github-mark.svg";
 import { useSignInWithPassword } from "@/hooks/mutations/auth/use-sign-in-with-password";
@@ -7,10 +7,22 @@ import { useSignInWithOAuth } from "@/hooks/mutations/auth/use-sign-in-with-oaut
 import { toast } from "sonner";
 import { generateErrorMessage } from "@/lib/error";
 // import { AuthError } from "@supabase/supabase-js";
+import { useOpenAlertModal } from "@/store/alert-modal";
 
 function SignInPage() {
+  const openAlertModal = useOpenAlertModal();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    openAlertModal({
+      title: "테스트계정으로 로그인하세요.",
+      description: "id:test@test.com / password:123123123",
+      onPositive: () => {
+        // deletePost(id);
+      },
+    });
+  }, []);
 
   const { mutate: signInWithPassword, isPending: isSignInWithPasswordPending } =
     useSignInWithPassword({
